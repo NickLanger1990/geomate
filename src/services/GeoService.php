@@ -183,7 +183,7 @@ class GeoService extends Component
             return $settings->forceIp;
         }
 
-        $ip = Craft::$app->getRequest()->getUserIP();
+        $ip = Craft::$app->getRequest()->getUserIP(FILTER_FLAG_NO_PRIV_RANGE);
 
         if (!\in_array($ip, $localIps, true)) {
             return $ip;
